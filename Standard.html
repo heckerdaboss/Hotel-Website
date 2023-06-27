@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>STANDARD HOTEL</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+  <style>
+  h1{font-family:'Courier New', monospace};
+  .button2 {
+    background-color:#d2d22d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align:left;
+    text-decoration: none;
+    display:block;
+    font-size: 30px;
+    margin: 9px 2px;
+    cursor: pointer;
+  }
+  </style>
+<h1>STANDARD HOTEL</h1>
+
+<!BEGINNING OF HOTEL IMAGE BUTTON><img src="https://media-cdn.tripadvisor.com/media/photo-s/21/f1/ce/90/example-of-suite-living.jpg" id="imgDemo" alt="HTML5 Icon" width="600" height="500">
+                  <button onclick="prvs()" id="btnTwo"><</button>
+                  <button onclick="nxt()" id="btnOne">></button>
+<script>
+var img = new Array("https://q-xx.bstatic.com/xdata/images/hotel/840x460/232558114.jpg?k=265af497b82d481583404d2f3aca160d0adab22bb59a8c935931d602c8561df0&o=","https://pix8.agoda.net/hotelImages/8250415/0/399ef08947eb8db18a292294bf2cb0d1.jpg?ca=22&ce=0&s=1024x768","https://q-xx.bstatic.com/xdata/images/hotel/840x460/209869491.jpg?k=609e8b4556f1d0f30b76203b0c439fe6c687159f756588a71e25be33a9c834a6&o","https://duvx7h32ggrur.cloudfront.net/attachments/13e2ebc9e5b1aef496c31ff7c46388d914cdc7a4/store/optimize_v1/1920/70/plane/9eb94db0864a52a93f254074ec117131ab69136797f5f06536ac6e6ed2d4/2-queenstandard.jpg","https://duvx7h32ggrur.cloudfront.net/attachments/ef5a7f31b587b7932c8360e0ed2a258bcb356676/store/optimize_v1/1920/70/plane/3ec620fa2f0f2b4dd0e40e348dd9ec761f6163c4db11fdd0cfe48acd0ad2/browns-x-standardoyinkan-dada1266.jpg",);
+
+var imgElement = document.getElementById("imgDemo");
+var i = 0;
+var imgLen = img.length;
+
+        function nxt()
+        {
+            if(i < imgLen-1)
+                {
+                    i++;
+                }
+            else{
+                    i=0;
+                }
+
+                imgElement.src = img[i];
+        }
+
+        function prvs()
+        {
+            if(i > 0)
+                {
+                    i--;
+                }
+            else
+            {
+                i = imgLen-1;
+            }
+                imgElement.src = img[i];
+        }
+ </script><!END OF HOTEL IMAGE BUTTON>
+<!DOCTYPE html>
+<html>
+<body>
+  <table>
+        <tr>
+            <td>
+                <tr>
+                  <td>Name</td>
+                  <td><input type="text" id="txtName" value=""></td>
+                </tr>
+                <br/>
+                <tr>
+                  <td>Number of guests</td>
+                  <td><input type="text" id="txtGuests" value=""></td>
+                </tr>
+              <br/>
+                <tr>
+                  <td> Number of rooms</td>
+                  <td><input type="text" id="txtRooms" value=""></td>
+                </tr>
+            </td>
+      <td>
+
+      <tr>
+        <td>
+    	<button type="button" style="width:100px;height:20px"  onclick="SubmitDetails()">Submit</button>
+
+      <button type="/'button" style="width:100px;height:20px" onclick="CancelDetails()">Cancel</button>
+    </td>
+</tr>
+</table>
+</body>
+<script>
+function SubmitDetails() {
+  var x = document.getElementById("txtName").value;
+  var guests = document.getElementById("txtGuests").value;
+  var rooms = document.getElementById("txtRooms").value;
+  var myPath = "C:\\Hotel\\";
+  var myTextfile = x+".txt";
+  var fso = new ActiveXObject("Scripting.FileSystemObject");
+  var outFile=fso.OpenTextFile(myPath + myTextfile, 2, true, 0);
+  outFile.WriteLine("Name : "+ x+" Guests: "+guests+" Rooms: "+rooms);
+  outFile.Close();
+  alert("Booking Successful for " + x);
+  document.write("Name : " + x);
+  document.write("\n");
+  document.write("<br>");
+  document.write(" Number of guests : "+ guests);
+  document.write("\n");
+  document.write("<br>");
+  document.write(" Number of rooms : "+rooms);
+}
+function CancelDetails() {
+  //var x = document.getElementById("myText").value;
+  //document.getElementById("demo").innerHTML = x;
+  alert("Booking Cancelled");
+}
+</script>
+</body>
+
+</html>
