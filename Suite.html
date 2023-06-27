@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SUITE</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+  <style>
+  h1{font-family:'Courier New', monospace};
+  .button
+  {
+
+  }
+  </style>
+<h1>SUITE</h1>
+<!BEGINNING OF HOTEL IMAGE BUTTON><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/fd/royal-suite-with-grand.jpg?w=1400&h=-1&s=1" id="imgDemo" alt="HTML5 Icon" width="600" height="500">
+                  <button onclick="prvs()" id="btnTwo"><</button>
+                  <button onclick="nxt()" id="btnOne">></button>
+<script>
+var img = new Array("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/f9/suite-eugenie.jpg?w=1400&h=-1&s=1","https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/f9/suite-eugenie.jpg?w=1400&h=-1&s=1","https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/e6/the-pearl-suite-reminiscent.jpg?w=1400&h=-1&s=1","https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/e3/ambassador-suite.jpg?w=1400&h=-1&s=1","https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/99/d1/dd/suite.jpg?w=1400&h=-1&s=1");
+
+var imgElement = document.getElementById("imgDemo");
+var i = 0;
+var imgLen = img.length;
+
+        function nxt()
+        {
+            if(i < imgLen-1)
+                {
+                    i++;
+                }
+            else{
+                    i=0;
+                }
+
+                imgElement.src = img[i];
+        }
+
+        function prvs()
+        {
+            if(i > 0)
+                {
+                    i--;
+                }
+            else
+            {
+                i = imgLen-1;
+            }
+                imgElement.src = img[i];
+        }
+ </script><!END OF HOTEL IMAGE BUTTON>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+  <table>
+        <tr>
+            <td>
+                <tr>
+                  <td>Name</td>
+                  <td><input type="text" id="txtName" value=""></td>
+                </tr>
+                <br/>
+                <tr>
+                  <td>Number of guests</td>
+                  <td><input type="text" id="txtGuests" value=""></td>
+                </tr>
+              <br/>
+                <tr>
+                  <td> Number of rooms</td>
+                  <td><input type="text" id="txtRooms" value=""></td>
+                </tr>
+            </td>
+      <td>
+
+      <tr>
+        <td>
+    	<button type="button" style="width:100px;height:20px"  onclick="SubmitDetails()">Submit</button>
+      <button type="button" style="width:100px;height:20px" onclick="CancelDetails()">Cancel</button>
+    </td>
+</tr>
+</table>
+
+<p id="print">
+
+</p>
+
+</body>
+<script type="text/javascript">
+function SubmitDetails() {
+  var x = document.getElementById("txtName").value;
+  var guests = document.getElementById("txtGuests").value;
+  var rooms = document.getElementById("txtRooms").value;
+  var myPath = "C:\\Hotel\\";
+  var myTextfile = x+".txt";
+  var fso = new ActiveXObject("Scripting.FileSystemObject");
+  var outFile=fso.OpenTextFile(myPath + myTextfile, 2, true, 0);
+  outFile.WriteLine("Name : "+ x+" Guests: "+guests+" Rooms: "+rooms);
+  outFile.Close();
+  alert("Booking Successful for " + x);
+  document.write("Name : " + x);
+  document.write("\n");
+  document.write("<br>");
+  document.write(" Number of guests : "+ guests);
+  document.write("\n");
+  document.write("<br>");
+  document.write(" Number of rooms : "+rooms);
+}
+function CancelDetails() {
+  //var x = document.getElementById("myText").value;
+  //document.getElementById("demo").innerHTML = x;
+  alert("Booking Cancelled");
+}
+</script>
+</body>
+
+</html>
